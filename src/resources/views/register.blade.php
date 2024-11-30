@@ -58,9 +58,7 @@
                 </div>
             </div>
         </div>
-        <form action="/login" method="post">
             <button class="form__button-submit" type="submit">登録</button>
-        </form>
     </form>
 </div>
 @endsection
