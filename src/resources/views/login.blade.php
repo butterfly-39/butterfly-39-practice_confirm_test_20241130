@@ -44,9 +44,7 @@
                 </div>
             </div>
         </div>
-        <form action="/admin" method="post">
             <button class="form__button-submit" type="submit">ログイン</button>
-        </form>
     </form>
 </div>
 @endsection
