@@ -11,7 +11,7 @@
 @section('content')
 <h2>Register</h2>
 <div class="register-form__content">
-    <form class="form" action="/login" method="post">
+    <form class="form" action="/register" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-title">

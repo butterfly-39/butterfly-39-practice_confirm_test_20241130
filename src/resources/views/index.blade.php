@@ -31,9 +31,9 @@
         <div class="form-group">
             <label for="gender">性別 <span class="required">*</span></label>
             <div class="input-radio">
-                <label><input type="radio" name="gender" value="男性" checked> 男性</label>
-                <label><input type="radio" name="gender" value="女性"> 女性</label>
-                <label><input type="radio" name="gender" value="その他"> その他</label>
+                <label><input type="radio" id="gender" value="男性" checked> 男性</label>
+                <label><input type="radio" id="gender" value="女性"> 女性</label>
+                <label><input type="radio" id="gender" value="その他"> その他</label>
             </div>
             <div class="form__error">
                 @error('gender')
