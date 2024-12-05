@@ -15,12 +15,8 @@ class AuthController extends Controller
 
     public function confirm(ContactRequest $request)
     {
-        return view('confirm');
+        $contact = $request->only(['last_name', 'first_name','gender', 'email', 'tel', 'address', 'building', 'category', 'content']);
+        return view('confirm', compact('contact'));
     }
 
-    public function admin(LoginRequest $request)
-    {
-        $contents = $request->only(['name','gender','email','subject']);
-        return view('admin', compact('contents'));
-    }
 }
