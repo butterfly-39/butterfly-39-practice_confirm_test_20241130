@@ -55,9 +55,9 @@
         <div class="form-group">
             <label for="tel">電話番号 <span class="required">*</span></label>
             <div class="input-tel">
-                <input type="text" placeholder="080"> -
-                <input type="text" placeholder="1234"> -
-                <input type="text" placeholder="5678">
+                <input type="text" name="tel1" placeholder="080"> -
+                <input type="text" name="tel2" placeholder="1234"> -
+                <input type="text" name="tel3" placeholder="5678">
             </div>
             <div class="form__error">
                 @error('tel')
@@ -84,10 +84,12 @@
         </div>
         <div class="form-group">
             <label for="category">お問い合わせの種類 <span class="required">*</span></label>
-                <select id="category">
+                <select id="category" name="inquiry_type">
                     <option value="">選択してください</option>
-                    <option value="質問">質問</option>
-                    <option value="要望">要望</option>
+                    <option value="お届け">商品のお届けについて</option>
+                    <option value="交換">商品の交換について</option>
+                    <option value="トラブル">商品トラブル</option>
+                    <option value="問い合わせ">ショップへのお問い合わせ</option>
                     <option value="その他">その他</option>
                 </select>
             <div class="form__error">
@@ -99,7 +101,7 @@
         <div class="form-group">
             <label for="content">お問い合わせ内容 <span class="required">*</span></label>
             <div class="input-group">
-                <textarea name="content" value="{{ old('content')}}" placeholder="お問い合わせ内容をご記載ください"></textarea>
+                <textarea name="inquiry_content" placeholder="お問い合わせ内容をご記載ください">{{ old('inquiry_content')}}</textarea>
             </div>
             <div class="form__error">
                 @error('inquiry_content')

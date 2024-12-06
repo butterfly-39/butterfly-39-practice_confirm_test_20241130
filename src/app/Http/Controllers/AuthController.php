@@ -15,7 +15,9 @@ class AuthController extends Controller
 
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['last_name', 'first_name','gender', 'email', 'tel', 'address', 'building', 'category', 'content']);
+        $tel = $request->tel1 . '-' . $request->tel2 . '-' . $request->tel3;
+        $contact = $request->only(['last_name', 'first_name','gender', 'email', 'tel', 'address', 'building', 'inquiry_type', 'inquiry_content']);
+        $contact['tel'] = $tel; // 結合した電話番号を追加
         return view('confirm', compact('contact'));
     }
 

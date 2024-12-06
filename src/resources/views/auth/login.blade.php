@@ -12,7 +12,7 @@
 <h2>Login</h2>
 
 <div class="register-form__content">
-    <form class="form" action="/login" method="get">
+    <form class="form" action="/login" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
