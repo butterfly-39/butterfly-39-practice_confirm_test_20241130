@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 
 class ContactRequest extends FormRequest
 {
@@ -29,7 +29,9 @@ class ContactRequest extends FormRequest
             'first_name' => ['required'],
             'gender' => ['required'],
             'email' => ['required','email'],
-            'tel' => ['required','digits_between:0,5'],
+            'tel1' => ['required','digits_between:0,5'],
+            'tel2' => ['required','digits_between:0,5'],
+            'tel3' => ['required','digits_between:0,5'],
             'address' => ['required'],
             'inquiry_type' => ['required'],
             'inquiry_content' => ['required','max:120'],
@@ -44,8 +46,12 @@ class ContactRequest extends FormRequest
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'tel.required' => '電話番号を入力してください',
-            'tel.digits_between' => '電話番号は5桁までの数字で入力してください',
+            'tel1.required' => '電話番号を入力してください',
+            'tel1.digits_between' => '電話番号は5桁までの数字で入力してください',
+            'tel2.required' => '電話番号を入力してください',
+            'tel2.digits_between' => '電話番号は5桁までの数字で入力してください',
+            'tel3.required' => '電話番号を入力してください',
+            'tel3.digits_between' => '電話番号は5桁までの数字で入力してください',
             'address.required' => '住所を入力してください',
             'inquiry_type.required' => 'お問い合わせの種類を選択してください',
             'inquiry_content.required' => 'お問い合わせ内容を入力してください',

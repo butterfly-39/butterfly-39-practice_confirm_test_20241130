@@ -55,9 +55,9 @@
         <div class="form-group">
             <label for="tel">電話番号 <span class="required">*</span></label>
             <div class="input-tel">
-                <input type="text" name="tel1" placeholder="080"> -
-                <input type="text" name="tel2" placeholder="1234"> -
-                <input type="text" name="tel3" placeholder="5678">
+                <input type="tel" name="tel1" placeholder="080"> -
+                <input type="tel" name="tel2" placeholder="1234"> -
+                <input type="tel" name="tel3" placeholder="5678">
             </div>
             <div class="form__error">
                 @error('tel')
