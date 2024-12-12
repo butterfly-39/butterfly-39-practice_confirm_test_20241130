@@ -20,3 +20,4 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/admin', [ContactController::class, 'admin']);
+Route::get('/test', [ContactController::class, 'test']);

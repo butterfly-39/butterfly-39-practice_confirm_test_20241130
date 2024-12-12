@@ -21,4 +21,8 @@ class ContactController extends Controller
         return view('confirm', compact('contact'));
     }
 
+    public function test()
+    {
+        return view('test');
+    }
 }

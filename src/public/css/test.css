@@ -1,13 +1,29 @@
-.contact-form__content {
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
     max-width: 1230px;
+}
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.contact-form__content {
     margin: 0 auto;
     padding: 30px 15px;
+    max-width: 1230px;
 }
 
 .contact-form__heading {
-    text-align: center;
-    color: #8e7963;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .form {
@@ -19,13 +35,15 @@
 .form__group {
     display: flex;
     justify-content: space-between;
-    margin: 0 0 15px;
-    color: #8e7963;
+    margin-bottom: 15px;
 }
 
 .form__label--required {
-    margin-left: 3px;
-    color: red;
+    margin-left: 5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    background: #fafafa;
+    color: #aaa;
 }
 
 .form__error {
@@ -39,6 +57,8 @@
     padding: 10px;
     width: 600px;
     border: 1px solid #ddd;
+    border-radius: 3px;
+
     appearance: none;
 }
 
@@ -50,37 +70,17 @@
     height: 180px;
 }
 
-.form__input--radio label {
-    margin-right: 15px;
-    font-weight: normal;
-}
-
-.form__input--radio input {
-    margin-right: 5px;
-}
-
-.form__input--text input {
-    width: 30%;
-    padding: 10px;
-    margin-right: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-select {
-    background: #fff;
-}
-
 .form__button {
     margin-top: 30px;
 }
 
 .form__button-submit {
-    padding: 5px 10px;
+    padding: 10px;
     width: 30%;
     height: 50px;
     border: none;
-    background: #8e7963;
+    border-radius: 3px;
+    background: #000;
     color: #fff;
     cursor: pointer;
 }
