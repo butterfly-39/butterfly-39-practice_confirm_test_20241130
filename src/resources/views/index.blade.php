@@ -151,10 +151,10 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--textarea">
-                    <textarea name="inquiry_content" placeholder="お問い合わせ内容をご記載ください">{{ old('inquiry_content')}}</textarea>
+                    <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail')}}</textarea>
                 </div>
                 <div class="form__error">
-                    @error('inquiry_content')
+                    @error('detail')
                     {{ $message }}
                     @enderror
                 </div>
