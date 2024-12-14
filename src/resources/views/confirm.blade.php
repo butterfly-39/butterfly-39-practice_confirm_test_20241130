@@ -50,7 +50,8 @@
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">お問い合わせの種類</th>
                 <td class="confirm-table__text">
-                    <input type="text" name="inquiry_type" value="{{ $contact['inquiry_type'] }}" readonly />
+                    <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly />
+                    <input type="text" name="category_content" value="{{ $category->content }}"/>
                 </td>
             </tr>
             <tr class="confirm-table__row">
@@ -65,7 +66,7 @@
         <button class="submit-button">送信</button>
     </div>
     </form>
-    <form class="button-group" action="/confirm" method="post">
+    <form class="button-group" action="/index" method="post">
         <button type="submit" class="edit-button">修正</button>
     </form>
 </div>

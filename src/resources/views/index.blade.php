@@ -129,17 +129,15 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <select id="category" name="inquiry_type">
-                        <option value="">選択してください</option>
-                        <option value="商品のお届けについて">商品のお届けについて</option>
-                        <option value="商品の交換について">商品の交換について</option>
-                        <option value="商品トラブル">商品トラブル</option>
-                        <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
-                        <option value="その他">その他</option>
+                    <select id="category" name="category_id">
+                        <option>選択してください</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->content }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form__error">
-                    @error('inquiry_type')
+                    @error('category_id')
                     {{ $message }}
                     @enderror
                 </div>
