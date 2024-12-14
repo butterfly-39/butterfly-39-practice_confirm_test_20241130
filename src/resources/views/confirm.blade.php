@@ -7,15 +7,14 @@
 @section('content')
 <h2>Confirm</h2>
 <div class="confirm-form__content">
-    <form class="form" action="/contacts" method="post">
+    <form class="form" action="/thanks" method="post">
     @csrf
     <div class="confirm-table">
         <table class="confirm-table__inner">
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">お名前</th>
                 <td class="confirm-table__text">
-                    <span><input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly /></span>
-                    <span><input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly /></span>
+                    <span><input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly /></span> <span><input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly /></span>
                 </td>
             </tr>
             <tr class="confirm-table__row">
@@ -64,8 +63,10 @@
     </div>
     <div class="button-group">
         <button class="submit-button">送信</button>
-        <button class="edit-button">修正</button>
     </div>
+    </form>
+    <form class="button-group" action="/confirm" method="post">
+        <button type="submit" class="edit-button">修正</button>
     </form>
 </div>
 @endsection

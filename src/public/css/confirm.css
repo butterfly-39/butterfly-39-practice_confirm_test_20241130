@@ -49,6 +49,7 @@ h2 {
 }
 
 .button-group {
+    display: flex;
     margin-top: 30px;
     text-align: center;
 }
