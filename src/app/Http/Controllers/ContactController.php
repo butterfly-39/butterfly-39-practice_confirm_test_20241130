@@ -9,13 +9,13 @@ use App\Models\Category;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index() //お問い合わせフォーム入力画面の表示
     {
         $categories = Category::all();
         return view('index', compact('categories'));
     }
 
-    public function confirm(ContactRequest $request)
+    public function confirm(ContactRequest $request) //確認画面に遷移
     {
         $tel = $request->tel1 . '-' . $request->tel2 . '-' . $request->tel3;
         $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']);
@@ -24,7 +24,7 @@ class ContactController extends Controller
         return view('confirm', compact('contact','category'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //データベースに値を追加・保存
     {
         $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail','tel']); // 必要なデータを取得
         $gender_map = [
@@ -37,9 +37,8 @@ class ContactController extends Controller
         return view('thanks');
     }
 
-    public function test()
+    public function edit(Request $request) //前回入力した値が入った修正画面を表示
     {
-        return view('test');
+        return view('index');
     }
-
 }

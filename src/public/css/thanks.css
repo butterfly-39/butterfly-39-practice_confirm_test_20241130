@@ -1,0 +1,27 @@
+main {
+    max-width: 1230px;
+    color: #8e7963;
+}
+h1 {
+    font-size: 200px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin: auto;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-top: 30px;
+}
+
+.submit-btn {
+    padding: 5px 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    background: #8e7963;
+    color: #fff;
+    cursor: pointer;
+}

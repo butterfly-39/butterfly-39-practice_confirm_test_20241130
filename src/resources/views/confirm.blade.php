@@ -67,6 +67,7 @@
     </div>
     </form>
     <form class="button-group" action="/index" method="post">
+        @csrf
         <button type="submit" class="edit-button">修正</button>
     </form>
 </div>

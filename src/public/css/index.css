@@ -1,13 +1,13 @@
 .contact-form__content {
-    max-width: 1230px;
     margin: 0 auto;
     padding: 30px 15px;
+    max-width: 1230px;
 }
 
 .contact-form__heading {
+    margin-bottom: 40px;
     text-align: center;
     color: #8e7963;
-    margin-bottom: 40px;
 }
 
 .form {
@@ -76,7 +76,7 @@ select {
 }
 
 .form__button-submit {
-    padding: 5px 10px;
+    padding: 5px 5px;
     width: 30%;
     height: 50px;
     border: none;

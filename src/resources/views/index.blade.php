@@ -7,7 +7,7 @@
 @section('content')
 <div class="contact-form__content">
     <div class="contact-form__heading">
-        <h2>Content</h2>
+        <h2>Contact</h2>
     </div>
     <form class="form" action="/confirm" method="post">
         @csrf
@@ -46,9 +46,22 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--radio">
-                    <label><input type="radio" name="gender" value="男性" checked> 男性</label>
-                    <label><input type="radio" name="gender" value="女性"> 女性</label>
-                    <label><input type="radio" name="gender" value="その他"> その他</label>
+                    <label class="contact-form__gender-label">
+                        <input class="contact-form__gender-input" name="gender" type="radio" value="男性" {{ old('gender','男性') == '男性' ? 'checked' : '' }} />
+                        <span class="contact-form__gender-text">男性</span>
+                    </label>
+                </div>
+                <div class="form__input--radio">
+                    <label class="contact-form__gender-label">
+                        <input class="contact-form__gender-input" type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}>
+                        <span class="contact-form__gender-text">女性</span>
+                    </label>
+                </div>
+                <div class="form__input--radio">
+                    <label class="contact-form__gender-label" for="other">
+                        <input class="contact-form__gender-input" type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}>
+                        <span class="contact-form__gender-text">その他</span>
+                    </label>
                 </div>
                 <div class="form__error">
                     @error('gender')
@@ -82,9 +95,9 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="tel" name="tel1" placeholder="080"> -
-                    <input type="tel" name="tel2" placeholder="1234"> -
-                    <input type="tel" name="tel3" placeholder="5678">
+                    <input type="tel" name="tel1" value="{{ old('tel1') }}" placeholder="080"> -
+                    <input type="tel" name="tel2" value="{{ old('tel2') }}" placeholder="1234"> -
+                    <input type="tel" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
                 </div>
                 <div class="form__error">
                     @error('tel')
@@ -129,10 +142,10 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <select id="category" name="category_id">
-                        <option>選択してください</option>
+                    <select class="contact-form__select" name="category_id" id="category" >
+                        <option disabled selected>選択してください</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->content }}</option>
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->content }}</option>
                         @endforeach
                     </select>
                 </div>
