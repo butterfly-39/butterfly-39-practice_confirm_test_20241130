@@ -22,4 +22,5 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/admin', [ContactController::class, 'admin']);
 Route::post('/index', [ContactController::class, 'index']);
 Route::post('/thanks', [ContactController::class, 'store']);
-Route::post('/index', [ContactController::class, 'edit']);
+Route::get('/index', [ContactController::class, 'edit']);
+

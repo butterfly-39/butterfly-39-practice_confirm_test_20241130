@@ -39,6 +39,7 @@ class ContactController extends Controller
 
     public function edit(Request $request) //前回入力した値が入った修正画面を表示
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 }
