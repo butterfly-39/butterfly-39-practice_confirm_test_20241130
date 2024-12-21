@@ -71,7 +71,7 @@
             </div>
         </div>
         <!-- メールアドレス -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">メールアドレス</span>
                 <span class="form__label--required">※</span>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <!-- 電話番号 -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">電話番号</span>
                 <span class="form__label--required">※</span>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <!-- 住所 -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">住所</span>
                 <span class="form__label--required">※</span>
@@ -124,7 +124,7 @@
             </div>
         </div>
         <!-- 建物名 -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">建物名</span>
             </div>
@@ -135,7 +135,7 @@
             </div>
         </div>
         <!-- お問い合わせの種類 -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お問い合わせの種類</span>
                 <span class="form__label--required">※</span>
@@ -157,7 +157,7 @@
             </div>
         </div>
         <!-- お問い合わせ内容 -->
-        <div class="form-group">
+        <div class="form__group">
             <div class="form__group-title">
                 <span class="form__label--item">お問い合わせ内容</span>
                 <span class="form__label--required">※</span>

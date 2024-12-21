@@ -24,22 +24,29 @@ class ContactController extends Controller
         return view('confirm', compact('contact','category'));
     }
 
-    public function store(Request $request) //データベースに値を追加・保存
+    public function handleForm(Request $request) //データベースに値を追加・保存
     {
-        $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail','tel']); // 必要なデータを取得
-        $gender_map = [
-            '男性' => 1,
-            '女性' => 2,
-            'その他' => 3,
-        ];
-        $contact['gender'] = $gender_map[$request->input('gender')]; // 性別を数値に変換
-        Contact::create($contact); // データベースに保存
-        return view('thanks');
-    }
+        // 修正ボタンが押された場合
+        if ($request->has('back')) {
+            // 入力画面にリダイレクトし、入力内容を引き継ぐ
+            return redirect()->route('index')->withInput();
+        }
 
-    public function edit(Request $request) //前回入力した値が入った修正画面を表示
-    {
-        $categories = Category::all();
-        return view('index', compact('categories'));
+        // 送信ボタンが押された場合
+        if ($request->has('send')) {
+            // 必要なデータを取得
+            $contact = $request->only(['last_name', 'first_name','gender', 'email', 'address', 'building', 'category_id', 'detail','tel']);
+            // 性別を数値に変換
+            $gender_map = [
+                '男性' => 1,
+                '女性' => 2,
+                'その他' => 3,
+            ];
+            $contact['gender'] = $gender_map[$request->input('gender')];
+            // データベースに保存
+            Contact::create($contact);
+            // サンクスページへリダイレクト
+            return view('thanks');
+        }
     }
 }

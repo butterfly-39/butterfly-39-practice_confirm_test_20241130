@@ -20,7 +20,8 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/admin', [ContactController::class, 'admin']);
+Route::get('/index', [ContactController::class, 'index']);
 Route::post('/index', [ContactController::class, 'index']);
-Route::post('/thanks', [ContactController::class, 'store']);
-Route::get('/index', [ContactController::class, 'edit']);
+Route::post('/thanks', [ContactController::class, 'handleForm']);
+
 

@@ -63,12 +63,9 @@
         </table>
     </div>
     <div class="button-group">
-        <button class="submit-button">送信</button>
+        <input class="send-button" type="submit" value="送信" name="send">
+        <input class="back-button" type="submit" value="修正" name="back">
     </div>
-    </form>
-    <form class="button-group" action="/index" method="post">
-        @csrf
-        <button type="submit" class="edit-button">修正</button>
     </form>
 </div>
 @endsection

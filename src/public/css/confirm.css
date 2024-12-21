@@ -36,6 +36,11 @@ h2 {
     border-bottom: 1px solid #ddd;
 }
 
+.confirm-table__text span {
+    display: inline-block;
+    margin-right: -100px;
+}
+
 .confirm-table__text input {
     width: 100%;
     outline: none;
@@ -54,7 +59,7 @@ h2 {
     text-align: center;
 }
 
-.submit-button {
+.send-button {
     padding: 5px 30px;
     background-color: #6e5530;
     color: #fff;
@@ -63,9 +68,9 @@ h2 {
     cursor: pointer;
 }
 
-.edit-button {
+.back-button {
     color: #8e7963;
-    padding-left: 30px;
+    padding: 5px 30px;
     text-decoration: underline;
     text-decoration-color: #8e7963;
     border: none;

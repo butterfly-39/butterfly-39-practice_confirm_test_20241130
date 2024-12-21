@@ -18,9 +18,24 @@
 
 .form__group {
     display: flex;
-    justify-content: space-between;
-    margin: 0 0 15px;
     color: #8e7963;
+}
+
+.form__group-title {
+    color: #8e7963;
+    text-align: left;
+}
+
+.form__group-content {
+    color: #8e7963;
+}
+
+.form__input--text {
+    color: #8e7963;
+}
+
+.form__input--radio {
+    display: inline
 }
 
 .form__label--required {
@@ -76,9 +91,7 @@ select {
 }
 
 .form__button-submit {
-    padding: 5px 5px;
-    width: 30%;
-    height: 50px;
+    padding: 5px 30px;
     border: none;
     background: #8e7963;
     color: #fff;
