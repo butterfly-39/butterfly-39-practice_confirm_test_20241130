@@ -10,4 +10,9 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = ['first_name','last_name','gender','email','tel','address','building','detail','category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

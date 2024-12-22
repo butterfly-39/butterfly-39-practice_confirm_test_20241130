@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Models\Contact;
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,9 @@ Route::middleware('auth')->group(function () {
     });
 
 Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::post('/admin', [ContactController::class, 'admin']);
+Route::get('/admin', [ContactController::class, 'admin']);
 Route::get('/index', [ContactController::class, 'index']);
 Route::post('/index', [ContactController::class, 'index']);
 Route::post('/thanks', [ContactController::class, 'handleForm']);
-
-
+Route::post('/login', [ContactController::class, 'login']);
+Route::get('/admin', [ContactController::class, 'search']);

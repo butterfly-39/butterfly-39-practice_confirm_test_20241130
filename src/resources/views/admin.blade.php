@@ -5,7 +5,7 @@
 @endsection
 
 @section('button')
-<form class="header__button" action="/logout" method="post">
+<form class="header__button" action="/login" method="post">
     @csrf
     logout
 </form>
@@ -14,20 +14,27 @@
 @section('content')
 <h2>Admin</h2>
     <div class="search-bar">
-        <input type="text" placeholder="名前やメールアドレスを入力してください">
-        <select>
-            <option>性別</option>
-            <option>男性</option>
-            <option>女性</option>
-        </select>
-        <select>
-            <option>お問い合わせの種類</option>
-        </select>
-        <select>
-            <option>年/月/日</option>
-        </select>
-        <button class="search-btn">検索</button>
-        <button class="reset-btn">リセット</button>
+        <form action="/admin" method="get">
+            <input type="text" name="search" placeholder="名前やメールアドレスを入力してください" value="{{ request('search') }}">
+            <select name="gender">
+                <option value="" selected>性別</option>
+                <option value="0" {{ request('gender') == '0' ? 'selected' : '' }}>全て</option>
+                <option value="1" {{ request('gender') == '1' ? 'selected' : '' }}>男性</option>
+                <option value="2" {{ request('gender') == '2' ? 'selected' : '' }}>女性</option>
+                <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
+            </select>
+            <select name="category">
+                <option>お問い合わせの種類</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                    {{ $category->content }}
+                </option>
+                @endforeach
+            </select>
+            <input type="date" name="date" class="date-picker" value="{{ request('date') }}">
+            <button type="submit" class="search-btn">検索</button>
+            <button type="reset" class="reset-btn">リセット</button>
+        </form>
     </div>
 
     <button class="export-btn">エクスポート</button>
@@ -53,12 +60,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($contents as $content)
+            @foreach($contacts as $contact)
             <tr>
-                <td>{{ $content->name }}</td>
-                <td>{{ $content->gender }}</td>
-                <td>{{ $content->email }}</td>
-                <td>{{ $content->subject }}</td>
+                <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                <td>
+                    @if($contact->gender == 1)
+                        男性
+                    @elseif($contact->gender == 2)
+                        女性
+                    @elseif($contact->gender == 3)
+                        その他
+                    @endif
+                </td>
+                <td>{{ $contact->email }}</td>
+                <td>{{ $contact->category->content }}</td>
                 <td><button class="detail-btn">詳細</button></td>
             </tr>
             @endforeach
