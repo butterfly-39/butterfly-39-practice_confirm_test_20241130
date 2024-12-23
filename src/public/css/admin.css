@@ -137,3 +137,13 @@ tbody td {
     background-color: #fff;
     cursor: not-allowed;
 }
+
+.pagination-container {
+    margin: 20px 0;
+}
+
+.pagination-info {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

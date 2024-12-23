@@ -88,7 +88,9 @@ class ContactController extends Controller
             $query->whereDate('created_at', $request->date);
         }
 
-        $contacts = $query->with('category')->paginate(7);
+        $contacts = $query->with('category')
+            ->orderBy('created_at', 'desc')
+            ->paginate(7);
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
@@ -96,7 +98,9 @@ class ContactController extends Controller
 
     public function admin()
     {
-        $contacts = Contact::with('category')->orderBy('created_at', 'desc')->paginate(7);
+        $contacts = Contact::with('category')
+            ->orderBy('created_at', 'desc')
+            ->paginate(7);
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }

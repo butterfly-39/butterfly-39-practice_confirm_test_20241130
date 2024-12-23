@@ -69,5 +69,35 @@
             @endforeach
         </tbody>
     </table>
-    {{ $contacts->links() }}
+    @if ($contacts->hasPages())
+        <div class="pagination-container">
+            <div class="pagination-info">
+                Showing {{ $contacts->firstItem() }} to {{ $contacts->lastItem() }} of {{ $contacts->total() }} results
+            </div>
+            <ul class="pagination">
+                {{-- 前へ --}}
+                @if ($contacts->onFirstPage())
+                    <li class="disabled"><span>&laquo;</span></li>
+                @else
+                    <li><a href="{{ $contacts->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+                @endif
+
+                {{-- ページ番号 --}}
+                @foreach ($contacts->getUrlRange(1, $contacts->lastPage()) as $page => $url)
+                    @if ($page == $contacts->currentPage())
+                        <li class="active"><span>{{ $page }}</span></li>
+                    @else
+                        <li><a href="{{ $url }}">{{ $page }}</a></li>
+                    @endif
+                @endforeach
+
+                {{-- 次へ --}}
+                @if ($contacts->hasMorePages())
+                    <li><a href="{{ $contacts->nextPageUrl() }}" rel="next">&raquo;</a></li>
+                @else
+                    <li class="disabled"><span>&raquo;</span></li>
+                @endif
+            </ul>
+        </div>
+    @endif
 @endsection
