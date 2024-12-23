@@ -92,19 +92,48 @@ tbody td {
 
 .pagination {
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
 }
 
-.pagination button {
+.pagination li {
+    margin: 0 2px;
+}
+
+.pagination li a,
+.pagination li span {
+    display: block;
+    padding: 6px 10px;
+    color: #666;
     background-color: #fff;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.pagination li.active span {
+    background-color: #8c7760;
+    color: #fff;
+    border-color: #8c7760;
+}
+
+.pagination li:first-child span,
+.pagination li:first-child a,
+.pagination li:last-child span,
+.pagination li:last-child a {
+    background-color: #fff;
     color: #666;
 }
 
-.pagination .active {
-    background-color: #8c7760;
-    color: #fff;
+.pagination li a:hover {
+    background-color: #f8f8f8;
+}
+
+.pagination .disabled span {
+    color: #ccc;
+    background-color: #fff;
+    cursor: not-allowed;
 }

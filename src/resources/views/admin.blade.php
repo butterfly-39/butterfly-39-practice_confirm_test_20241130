@@ -24,7 +24,7 @@
                 <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
             </select>
             <select name="category">
-                <option>お問い合わせの種類</option>
+                <option value="" selected>お問い合わせの種類</option>
                 @foreach($categories as $category)
                 <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
                     {{ $category->content }}
@@ -38,16 +38,6 @@
     </div>
 
     <button class="export-btn">エクスポート</button>
-
-    <div class="pagination">
-        <button>&lt;</button>
-        <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>&gt;</button>
-    </div>
 
     <table>
         <thead>
@@ -79,4 +69,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $contacts->links() }}
 @endsection

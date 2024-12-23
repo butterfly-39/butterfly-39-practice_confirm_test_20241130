@@ -14,7 +14,7 @@ class ContactController extends Controller
         $contacts = Contact::with('category')->get();
         $categories = Category::all();
 
-        return view('admin', compact('contacts', 'categories'));
+        return view('index', compact('contacts', 'categories'));
     }
 
     public function confirm(ContactRequest $request) //確認画面に遷移
@@ -88,9 +88,17 @@ class ContactController extends Controller
             $query->whereDate('created_at', $request->date);
         }
 
-        $contacts = $query->with('category')->paginate(10);
+        $contacts = $query->with('category')->paginate(7);
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
     }
+
+    public function admin()
+    {
+        $contacts = Contact::with('category')->orderBy('created_at', 'desc')->paginate(7);
+        $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
+    }
+
 }

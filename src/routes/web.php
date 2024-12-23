@@ -20,11 +20,7 @@ use App\Models\Category;
 Route::middleware('auth')->group(function () {
     Route::get('/', [ContactController::class, 'index']);
     });
-
 Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::get('/admin', [ContactController::class, 'admin']);
-Route::get('/index', [ContactController::class, 'index']);
-Route::post('/index', [ContactController::class, 'index']);
 Route::post('/thanks', [ContactController::class, 'handleForm']);
-Route::post('/login', [ContactController::class, 'login']);
 Route::get('/admin', [ContactController::class, 'search']);
+Route::get('/login', [ContactController::class, 'login']);
