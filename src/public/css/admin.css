@@ -38,29 +38,31 @@ h2 {
     background-color: #fff;
 }
 
+.search-btn,
+.reset-btn,
+.export-btn {
+    border: none;
+    cursor: pointer;
+    padding: 8px 20px;
+}
+
 .search-btn {
     color: black;
     background-color: #59452f;
-    border: none;
-    cursor: pointer;
-    padding: 8px 20px;
+}
+
+.reset-btn,
+.export-btn {
+    background-color: #E6E0DB;
 }
 
 .reset-btn {
-    background-color: #E6E0DB;
     color: #8c7760;
-    border: none;
-    cursor: pointer;
-    padding: 8px 20px;
 }
 
 .export-btn {
-    background-color: #E6E0DB;
     color: #666;
-    border: none;
-    padding: 8px 20px;
-    margin-bottom: 10px;
-    cursor: pointer;
+    margin-bottom: 0;
 }
 
 table {
@@ -104,6 +106,16 @@ tbody td {
 }
 
 .pagination li a,
+.pagination li span,
+.pagination li:first-child span,
+.pagination li:first-child a,
+.pagination li:last-child span,
+.pagination li:last-child a {
+    background-color: #fff;
+    color: #666;
+}
+
+.pagination li a,
 .pagination li span {
     display: block;
     padding: 6px 10px;
@@ -120,14 +132,6 @@ tbody td {
     border-color: #8c7760;
 }
 
-.pagination li:first-child span,
-.pagination li:first-child a,
-.pagination li:last-child span,
-.pagination li:last-child a {
-    background-color: #fff;
-    color: #666;
-}
-
 .pagination li a:hover {
     background-color: #f8f8f8;
 }
@@ -140,10 +144,12 @@ tbody td {
 
 .pagination-container {
     margin: 20px 0;
+    margin-left: auto;
 }
 
-.pagination-info {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
 }
