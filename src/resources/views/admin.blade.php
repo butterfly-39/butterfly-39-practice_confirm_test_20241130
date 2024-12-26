@@ -11,48 +11,72 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.0);
+        visibility: hidden;
+        opacity: 0;
+        right: 0;
+        bottom: 0;
+        transition: 0.3s ease-in-out;
     }
 
     /* URLのハッシュと一致する要素を表示 */
     .modal:target {
         display: block;
+        visibility: visible;
+        opacity: 1;
     }
 
     .modal-content {
+        color: #8e7963;
         background-color: #fff;
         width: 80%;
-        max-width: 800px;
+        max-width: 700px;
+        height: 90vh;
         margin: 50px auto;
-        padding: 20px;
-        border-radius: 5px;
+        padding: 70px;
         position: relative;
-    }
-
-    .modal-close {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        text-decoration: none;
-        color: #333;
-        font-size: 24px;
-        font-weight: bold;
+        overflow-y: auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid #8c7760;
     }
 
     /* モーダル内のテーブルスタイル調整 */
     .modal-table {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 40px;
+        border-collapse: collapse;
+    }
+
+    .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
     }
 
     .modal-table th {
         width: 30%;
         text-align: left;
-        padding: 10px;
+        padding: 12px;
+        border: none;
     }
 
     .modal-table td {
         padding: 10px;
+        border: none;
+    }
+
+    /* 削除ボタンのスタイルを追加 */
+    .delete-btn {
+        background: #c53030;
+        color: white;
+        margin: 90px auto 0;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        display: block;
     }
 </style>
 @endsection
@@ -205,10 +229,13 @@
                         <td>{{ $contact->detail }}</td>
                     </tr>
                 </table>
-                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
-                    @csrf
+                <form class="delete-form" action="/contact/delete" method="POST">
                     @method('DELETE')
-                    <button type="submit" class="delete-btn">削除</button>
+                    @csrf
+                    <div class="delete-form__button">
+                        <input type="hidden" name="id" value="{{ $contact->id }}">
+                        <button type="submit" class="delete-btn">削除</button>
+                    </div>
                 </form>
             </div>
         </div>
