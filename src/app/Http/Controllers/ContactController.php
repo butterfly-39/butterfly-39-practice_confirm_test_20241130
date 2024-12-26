@@ -105,4 +105,10 @@ class ContactController extends Controller
         return view('admin', compact('contacts', 'categories'));
     }
 
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+        return redirect('/admin')->with('success', '削除が完了しました。');
+    }
+
 }

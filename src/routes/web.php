@@ -24,3 +24,4 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'handleForm']);
 Route::get('/admin', [ContactController::class, 'search']);
 Route::get('/login', [ContactController::class, 'login']);
+Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');

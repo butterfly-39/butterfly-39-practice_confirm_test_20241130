@@ -2,6 +2,59 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    /* URLのハッシュと一致する要素を表示 */
+    .modal:target {
+        display: block;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .modal-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        text-decoration: none;
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* モーダル内のテーブルスタイル調整 */
+    .modal-table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .modal-table th {
+        width: 30%;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .modal-table td {
+        padding: 10px;
+    }
+</style>
 @endsection
 
 @section('button')
@@ -76,7 +129,7 @@
                 <th>性別</th>
                 <th>メールアドレス</th>
                 <th>お問い合わせの種類</th>
-            <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -94,9 +147,71 @@
                 </td>
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content }}</td>
-                <td><button class="detail-btn">詳細</button></td>
+                <td>
+                    <a href="#modal{{ $contact->id }}" class="detail-btn">詳細</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
+    <!-- モーダルウィンドウをテーブルの外に配置 -->
+    @foreach($contacts as $contact)
+    <div class="modal" id="modal{{ $contact->id }}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="modal-close">&times;</a>
+            </div>
+            <div class="modal-body">
+                <table class="modal-table">
+                    <tr>
+                        <th>お名前</th>
+                        <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td>
+                            @if($contact->gender == 1)
+                                男性
+                            @elseif($contact->gender == 2)
+                                女性
+                            @elseif($contact->gender == 3)
+                                その他
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td>{{ $contact->email }}</td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td>{{ $contact->tel }}</td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td>{{ $contact->address }}</td>
+                    </tr>
+                    <tr>
+                        <th>建物名</th>
+                        <td>{{ $contact->building }}</td>
+                    </tr>
+                    <tr>
+                        <th>お問い合わせの種類</th>
+                        <td>{{ $contact->category->content }}</td>
+                    </tr>
+                    <tr>
+                        <th>お問い合わせ内容</th>
+                        <td>{{ $contact->detail }}</td>
+                    </tr>
+                </table>
+                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete-btn">削除</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endforeach
 @endsection
