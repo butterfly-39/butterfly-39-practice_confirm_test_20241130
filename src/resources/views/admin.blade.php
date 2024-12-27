@@ -115,7 +115,14 @@
     </div>
 
     <div class="table-footer">
-        <button class="export-btn">エクスポート</button>
+        <form action="/admin/export" method="get" style="display: inline;">
+            @csrf
+            <input type="hidden" name="search" value="{{ request('search') }}">
+            <input type="hidden" name="gender" value="{{ request('gender') }}">
+            <input type="hidden" name="category" value="{{ request('category') }}">
+            <input type="hidden" name="date" value="{{ request('date') }}">
+            <button type="submit" class="export-btn">エクスポート</button>
+        </form>
         @if ($contacts->hasPages())
             <div class="pagination-container">
                 <ul class="pagination">

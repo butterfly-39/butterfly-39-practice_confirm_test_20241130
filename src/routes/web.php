@@ -25,3 +25,4 @@ Route::post('/thanks', [ContactController::class, 'handleForm']);
 Route::get('/admin', [ContactController::class, 'search']);
 Route::get('/login', [ContactController::class, 'login']);
 Route::delete('/contact/delete', [ContactController::class, 'destroy']);
+Route::get('/admin/export', [ContactController::class, 'export']);
